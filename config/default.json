@@ -1,0 +1,8 @@
+{
+    "db_conf": {
+        "host": "127.0.0.1",
+        "mongo_port": 27017,
+        "port": 3001,
+        "default_database": "news_aggregator"
+    }
+}
