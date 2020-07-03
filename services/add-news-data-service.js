@@ -6,7 +6,7 @@ const newsData = require('../models/news-data')
 const addNewsData = async(body, newsApiData) => {
     try {
         let response;
-        let jsonBody = generateJsonBody(newsApiData)
+        let jsonBody = generateJsonBody(body,newsApiData)
         // console.log(JSON.stringify(jsonBody))
         response = await newsData.insertMany(jsonBody)
         logger.debug('Inserted news data from service = %j',response)
@@ -18,7 +18,7 @@ const addNewsData = async(body, newsApiData) => {
     }
 }
 
-function generateJsonBody(data) {
+function generateJsonBody(body, data) {
     let jsonBody = []
     data.forEach(element => {
         let json = {}
@@ -28,6 +28,9 @@ function generateJsonBody(data) {
         json['url'] = element.url
         json['content'] = element.content
         json['publishedDate'] = element.publishedAt
+        json['country'] = body.country
+        json['catagory'] = body.catagory
+        json['language'] = body.language
         jsonBody.push(json)
     });
     return jsonBody

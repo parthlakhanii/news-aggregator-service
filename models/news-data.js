@@ -33,6 +33,18 @@ const newsDataSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    catagory: {
+        type: String,
+        required: false
+    },
+    country: {
+        type: String,
+        required: false
+    },
+    language: {
+        type: String,
+        required: false
+    },
     updated_on: {
         type: String,
         required: false,
@@ -44,9 +56,9 @@ const newsDataSchema = new mongoose.Schema({
         unique: false
     }
 },
-{
-    collection: 'news_data'
-})
+    {
+        collection: 'news_data'
+    })
 newsDataSchema.plugin(autoIncrement, {
     model: 'news_data',
     field: 'news_id',

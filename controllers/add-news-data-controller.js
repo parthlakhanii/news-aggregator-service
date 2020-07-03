@@ -7,7 +7,7 @@ const axios = require('axios');
 const addNewsData = async (req, res) => {
     try {
         let response = null
-        let newsData = await callNewsApi()
+        // let newsData = await callNewsApi()
         if (req.body) {
             response = await addNewsDataService.addNewsData(req.body, newsData)
         }
