@@ -1,2 +1,2 @@
-# cricket-analysis-service
+# news-aggregator-service
 
