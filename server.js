@@ -9,8 +9,6 @@ const cors = require('cors')
 
 mongoose.Promise = global.Promise
 
-
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: false
@@ -26,9 +24,9 @@ app.listen(db.port, function (err, res) {
     logger.info(`Application is runnig on PORT = ${db.port}`)
 })
 
+// let mongoURL = 'mongodb://' + db.host + ':' + db.mongo_port + '/' + db.default_database
+let mongoURL = 'mongodb://parthlakhani:yXoNGd3ins0gQqNfuKGMRHDvNO34nEOQGdUoLX2aT5rV2MJSefOUAMZF9PsoBT3YsIefeiqQP08UZOACFV5Krg==@parthlakhani.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false'
 
-
-let mongoURL = 'mongodb://' + db.host + ':' + db.mongo_port + '/' + db.default_database
 const dbConnect = async () => {
     console.log("in connect")
     await mongoose.connect(mongoURL, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true }).then(
