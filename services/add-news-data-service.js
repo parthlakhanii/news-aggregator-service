@@ -7,12 +7,10 @@ const addNewsData = async (body, newsApiData) => {
     try {
         let response;
         let jsonBody = generateJsonBody(body, newsApiData)
-        // console.log(JSON.stringify(jsonBody))
         response = await newsData.insertMany(jsonBody)
         logger.debug('Inserted news data from service = %j', response)
         return generateSuccessResponse(response, 'news data added succesfully')
     } catch (error) {
-        console.log(error)
         logger.eroor('Error while inserting news data details from service = %j', error, error)
         return generateSuccessResponse(error, 'Error while inserting news data', httpStatusCode.INTERNAL_SERVER_ERROR)
     }

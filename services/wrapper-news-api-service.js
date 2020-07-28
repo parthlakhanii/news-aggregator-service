@@ -5,7 +5,7 @@ const e = require('express');
 const addNewsDataService = require("./add-news-data-service")
 
 const callNewsApi = async (body) => {
-  console.log('callNewsApiService')
+
   if (body.type == 'everything') {
     return newsapi.v2.everything({
       q: body.q || null,
@@ -17,7 +17,6 @@ const callNewsApi = async (body) => {
       sortBy: 'relevancy',
       page: 2
     }).then(response => {
-      console.log(response)
       return generateSuccessResponse(response, 'news data added succesfully', httpStatusCode.OK)
     });
   } else {

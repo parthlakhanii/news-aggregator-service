@@ -5,7 +5,6 @@ const userPreferenceData = require('../models/user-preference')
 const { json } = require('body-parser')
 
 const addPreferenceData = async (body) => {
-    console.log('addPreferenceData serviceeee')
     try {
         let jsonBody = generateJsonBody(body)
         let response = await userPreferenceData.insertMany(jsonBody)

@@ -6,7 +6,6 @@ const axios = require('axios');
 const addNewsDataService = require('../services/add-news-data-service')
 
 const newsApiCall = async (req, res) => {
-    console.log('controller')
     try {
         let response = null
         if (req.body) {

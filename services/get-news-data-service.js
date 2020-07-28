@@ -6,7 +6,8 @@ const standardApiStructureManager = require('../lib/standard-API-structure-manag
 
 const retriveNewsData = async(query) => {
     try {
-        let result = await newsData.find(generateQuery(query))
+        // let result = await newsData.find(generateQuery(query))
+        let result = await newsData.find(generateQuery(query)).sort({'publishedDate': -1})
         return generateSuccessResponse(result, 'Data retrived Succesfully', httpStatusCode.OK)
     } catch(error) {
         console.log(error)
@@ -20,7 +21,6 @@ function generateQuery(query) {
     for (let element in query) {
         queryJson[element] = query[element]
     }
-    console.log('queryJsonqueryJsonqueryJson', queryJson)
     return queryJson
 }
 
